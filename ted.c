@@ -57,9 +57,9 @@ main(int argc, char *argv[])
   XGrabKeyboard(display, rootwindow, False,  
                GrabModeAsync, GrabModeAsync, CurrentTime);
   for (uint i = 0; i < argc; ++i) {
-    if(m_strcmp(argv[i], "-m"))
+    if (m_strcmp(argv[i], "-m"))
       argmultiple = true;
-    if(m_strcmp(argv[i], "-nc"))
+    if (m_strcmp(argv[i], "-nc"))
       argcolor = false;
   }
   while (running) {
@@ -78,7 +78,7 @@ main(int argc, char *argv[])
       image = XGetImage(display, rootwindow,
                         event.xbutton.x, event.xbutton.y,
                         1, 1, AllPlanes, ZPixmap);
-      rgb = {(uint8) image->data[2], (uint8) image->data[1], b = (uint8) image->data[0]};
+      rgb[0] = (uint8) image->data[2]; rgb[1] = (uint8) image->data[1]; rgb[2] = (uint8) image->data[0];
       if (argcolor) {
         printf("\033[48;2;%d;%d;%dm             \033[0m   ", rgb[0], rgb[1], rgb[2]);
       }

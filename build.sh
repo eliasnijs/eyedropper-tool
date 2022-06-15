@@ -1,6 +1,6 @@
-SOURCE="tcp.c"
+SOURCE="ted.c"
 # screenshot info
-NAME="tcp"
+NAME="ted"
 VERSION="00"
 
 # includes and libs
